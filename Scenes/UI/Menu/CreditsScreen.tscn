@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/UI/Menu/credits_screen.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ScrollContainer:scroll_vertical")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "scroll"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ScrollContainer:scroll_vertical")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 88 ]
+}
+
+[node name="CreditsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Backgroiund" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.192157, 0.0784314, 0.376471, 1 )
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -109.0
+margin_top = -31.0
+margin_right = -63.0
+rect_scale = Vector2( 2, 2 )
+text = "BACK"
+
+[node name="TitleLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -205.5
+margin_top = 15.0
+margin_right = 205.5
+margin_bottom = 14.0
+text = "This game is possible thanks to awesome free assets by:"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -139.0
+margin_right = 65.0
+margin_bottom = 161.0
+rect_min_size = Vector2( 100, 300 )
+scroll_horizontal_enabled = false
+
+[node name="Credits" type="Label" parent="ScrollContainer"]
+margin_right = 59.0
+margin_bottom = 371.0
+text = "UI:
+- 1
+- 2
+- 3
+
+SOUNDS:
+- 4
+- 5
+
+MUSIC:
+- 6
+
+SPRITES:
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+
+FONT:
+-  13"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/scroll = SubResource( 2 )
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

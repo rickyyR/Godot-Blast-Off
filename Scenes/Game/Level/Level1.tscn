@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 656.0
+margin_bottom = 374.0
+color = Color( 0.356863, 0.0392157, 0.180392, 1 )
+
+[node name="Ground" type="TileMap" parent="."]
+format = 1
+
+[node name="Walls" type="TileMap" parent="."]
+format = 1
