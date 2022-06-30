@@ -43,17 +43,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.192157, 0.0784314, 0.376471, 1 )
 
-[node name="BackButton" type="Button" parent="."]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -109.0
-margin_top = -31.0
-margin_right = -63.0
-rect_scale = Vector2( 2, 2 )
-text = "BACK"
-
 [node name="TitleLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -109,5 +98,4 @@ align = 1
 anims/RESET = SubResource( 1 )
 anims/scroll = SubResource( 2 )
 
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
