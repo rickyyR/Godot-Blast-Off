@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/menu_soundtrack_by_cactusdude.ogg-7ff774707c23e5413b20c333ad73f0b8.oggstr"
+
+[deps]
+
+source_file="res://Assets/menu_soundtrack_by_cactusdude.ogg"
+dest_files=[ "res://.import/menu_soundtrack_by_cactusdude.ogg-7ff774707c23e5413b20c333ad73f0b8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
