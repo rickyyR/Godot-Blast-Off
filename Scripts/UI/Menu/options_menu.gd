@@ -1,14 +1,21 @@
 extends Control
 
 onready var ResolutionDropdown:= get_node("HBoxContainer/ScreenOptions/ResolutionOptions")
+onready var MasterSlider:= get_node("HBoxContainer/AudioOptions/MasterSlider")
+onready var MusicSlider:= get_node("HBoxContainer/AudioOptions/MusicSlider")
+onready var EffectsSlider:= get_node("HBoxContainer/AudioOptions/EffectsSlider")
+onready var FullscreenCheckbox:= get_node("HBoxContainer/ScreenOptions/CheckboxContainer/FullscreenCheckbox")
+onready var BorderlessCheckbox:= get_node("HBoxContainer/ScreenOptions/CheckboxContainer/BoderlessCheckbox")
+onready var DeleteSaveCheckbox:= get_node("HBoxContainer/SaveOptions/DeleteSaveCheckbox")
+onready var DeleteSaveButton:= get_node("HBoxContainer/SaveOptions/DeleteSaveButton")
 
 func _ready() -> void:
 	add_items_to_resolution_dropdown()
-	$HBoxContainer/AudioOptions/MusicSlider.value = GlobalVariables.settings["MusicVolumePercent"]
-	$HBoxContainer/AudioOptions/EffectsSlider.value = GlobalVariables.settings["EffectsVolumePercent"]
-	$HBoxContainer/AudioOptions/MasterSlider.value = GlobalVariables.settings[ "MasterVolumePercent"]
-	$HBoxContainer/ScreenOptions/CheckboxContainer/FullscreenCheckbox.pressed = GlobalVariables.settings["Fullscreen"]
-	$HBoxContainer/ScreenOptions/CheckboxContainer/BoderlessCheckbox.pressed = GlobalVariables.settings["Borderless"]
+	MasterSlider.value = GlobalVariables.settings[ "MasterVolumePercent"]
+	MusicSlider.value = GlobalVariables.settings["MusicVolumePercent"]
+	EffectsSlider.value = GlobalVariables.settings["EffectsVolumePercent"]
+	FullscreenCheckbox.pressed = GlobalVariables.settings["Fullscreen"]
+	BorderlessCheckbox.pressed = GlobalVariables.settings["Borderless"]
 	ResolutionDropdown.select(GlobalVariables.window_resolutions.find(GlobalVariables.settings["Resolution"]))
 	
 func add_items_to_resolution_dropdown():
@@ -41,16 +48,16 @@ func _on_FullscreenCheckbox_toggled(button_pressed: bool) -> void:
 		OS.set_window_fullscreen(true)
 		GlobalVariables.settings["Fullscreen"] = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
-		$HBoxContainer/ScreenOptions/CheckboxContainer/BoderlessCheckbox.disabled = true
-		$HBoxContainer/ScreenOptions/ResolutionOptions.disabled = true
+		BorderlessCheckbox.disabled = true
+		ResolutionDropdown.disabled = true
 	else:
 		OS.set_window_fullscreen(false)
 		GlobalVariables.settings["Fullscreen"] = false
 		OS.set_window_size(GlobalVariables.window_resolutions[ResolutionDropdown.selected])
 		center_screen()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		$HBoxContainer/ScreenOptions/CheckboxContainer/BoderlessCheckbox.disabled = false
-		$HBoxContainer/ScreenOptions/ResolutionOptions.disabled = false
+		BorderlessCheckbox.disabled = false
+		ResolutionDropdown.disabled = false
 
 func _on_BoderlessCheckbox_toggled(button_pressed: bool) -> void:
 	if button_pressed:
@@ -70,12 +77,12 @@ func _on_ResolutionOptions_item_selected(index: int) -> void:
 	center_screen()
 
 func _on_DeleteSaveButton_pressed():
-	if $HBoxContainer/SaveOptions/DeleteSaveCheckbox.pressed:
+	if DeleteSaveCheckbox.pressed:
 		SavingSystem.delete_all_data()
 		get_tree().change_scene("res://Scenes/UI/Menu/MainMenu.tscn")
 
 func _on_DeleteSaveCheckbox_toggled(button_pressed: bool) -> void:
 	if button_pressed:
-		$HBoxContainer/SaveOptions/DeleteSaveButton.disabled = false
+		DeleteSaveButton.disabled = false
 	else:
-		$HBoxContainer/SaveOptions/DeleteSaveButton.disabled = true
+		DeleteSaveButton.disabled = true

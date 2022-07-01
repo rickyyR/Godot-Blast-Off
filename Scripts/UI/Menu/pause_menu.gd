@@ -2,6 +2,8 @@
 extends CanvasLayer
 
 var visible:= false
+onready var Buttons:= get_node("Buttons")
+onready var Background:= get_node("Background")
 
 func _on_ResumeButton_pressed():
 	hide()
@@ -21,11 +23,11 @@ func _unhandled_input(event):
 		hide()
 		
 func show() -> void:
-	$Background.visible = true
-	$Buttons.visible = true
+	Background.visible = true
+	Buttons.visible = true
 	visible = true
 	
 func hide() -> void:
-	$Background.visible = false
-	$Buttons.visible = false
+	Background.visible = false
+	Buttons.visible = false
 	visible = false
