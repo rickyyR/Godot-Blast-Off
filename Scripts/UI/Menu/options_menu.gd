@@ -16,7 +16,9 @@ func _ready() -> void:
 	$HBoxContainer/ScreenOptions/CheckboxContainer/FullscreenCheckbox.pressed = GlobalVariables.settings["Fullscreen"]
 	$HBoxContainer/ScreenOptions/CheckboxContainer/BoderlessCheckbox.pressed = GlobalVariables.settings["Borderless"]
 	if not GlobalVariables.settings["Fullscreen"]:
-		ResolutionDropdown.select(window_resolutions.find(GlobalVariables.settings["Resolution"]))
+		var index = window_resolutions.find(GlobalVariables.settings["Resolution"])
+		ResolutionDropdown.select(index)
+		_on_ResolutionOptions_item_selected(index)
 	
 func add_items_to_resolution_dropdown():
 	for resolution in window_resolutions:
@@ -29,6 +31,7 @@ func center_screen() -> void:
 	
 func _on_BackButton_pressed() -> void:
 	SceneFader.transition_to("res://Scenes/UI/Menu/MainMenu.tscn")
+	SavingSystem.save_data()
 
 func _on_EffectsSlider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear2db(value))
@@ -74,8 +77,8 @@ func _on_ResolutionOptions_item_selected(index: int) -> void:
 
 func _on_DeleteSaveButton_pressed():
 	if $HBoxContainer/SaveOptions/DeleteSaveCheckbox.pressed:
-		GlobalVariables.clear_save_cache()
-		get_tree().change_scene("res://Scenes/GUI/IntroScene.tscn")
+		SavingSystem.delete_all_data()
+		get_tree().change_scene("res://Scenes/UI/Menu/MainMenu.tscn")
 
 func _on_DeleteSaveCheckbox_toggled(button_pressed: bool) -> void:
 	if button_pressed:

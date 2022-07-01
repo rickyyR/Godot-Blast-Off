@@ -9,3 +9,6 @@ func _on_OptionsButton_pressed() -> void:
 
 func _on_CreditsButton_pressed() -> void:
 	SceneFader.transition_to("res://Scenes/UI/Menu/CreditsScreen.tscn")
+
+func _on_QuitButton_pressed() -> void:
+	get_tree().quit()

@@ -18,9 +18,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -35.5
-margin_top = -34.0
+margin_top = -46.0
 margin_right = 35.5
-margin_bottom = 34.0
+margin_bottom = 46.0
 
 [node name="StartButton" type="Button" parent="Buttons"]
 margin_right = 71.0
@@ -39,6 +39,13 @@ margin_right = 71.0
 margin_bottom = 68.0
 text = "CREDITS"
 
+[node name="QuitButton" type="Button" parent="Buttons"]
+margin_top = 72.0
+margin_right = 71.0
+margin_bottom = 92.0
+text = "QUIT"
+
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]

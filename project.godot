@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PixelProjectPreset"
-run/main_scene="res://Scenes/UI/Menu/MainMenu.tscn"
+run/main_scene="res://Scenes/IntroScene.tscn"
 config/icon="res://Assets/icon.png"
 
 [autoload]
@@ -30,6 +30,7 @@ GlobalVariables="*res://Scripts/Autoload/global_variables.gd"
 SceneFader="*res://Scenes/Autoload/SceneFader.tscn"
 MusicPlayer="*res://Scenes/Autoload/MusicPlayer.tscn"
 PauseMenu="*res://Scenes/Autoload/PauseMenu.tscn"
+SavingSystem="*res://Scripts/Autoload/saving_system.gd"
 
 [debug]
 
