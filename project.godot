@@ -24,6 +24,10 @@ config/name="PixelProjectPreset"
 run/main_scene="res://Scenes/IntroScene.tscn"
 config/icon="res://Assets/icon.png"
 
+[audio]
+
+default_bus_layout="res://Resources/default_bus_layout.tres"
+
 [autoload]
 
 GlobalVariables="*res://Scripts/Autoload/global_variables.gd"

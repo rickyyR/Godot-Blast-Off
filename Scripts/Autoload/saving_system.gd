@@ -4,6 +4,10 @@ const SAVE_DIR = "user://saves/"
 
 var save_path = SAVE_DIR + "save.dat"
 
+func _ready() -> void:
+	load_data()
+	apply_user_settings()
+
 func save_data() -> void:
 	# You can add things to save here. 
 	#Note that the loading order must match the saving order
@@ -38,3 +42,21 @@ func load_data() -> void:
 func delete_all_data() -> void:
 	var dir = Directory.new()
 	dir.remove(save_path)
+	
+func apply_user_settings() -> void:
+	if not GlobalVariables.settings["Fullscreen"]:
+		OS.set_window_size(GlobalVariables.settings["Resolution"])
+		if GlobalVariables.settings["Borderless"]:
+			OS.window_borderless = true
+	else:
+		OS.window_fullscreen = true
+		
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),
+	 linear2db(GlobalVariables.settings["MasterVolumePercent"]))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"),
+	 linear2db(GlobalVariables.settings["EffectsVolumePercent"]))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),
+	 linear2db(GlobalVariables.settings["MusicVolumePercent"]))
+	
+	OS.center_window()
+	
