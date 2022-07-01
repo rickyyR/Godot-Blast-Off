@@ -11,7 +11,7 @@ func _ready() -> void:
 	_ScrollContainer.get_v_scrollbar().modulate = Color(0, 0, 0, 0)
 	_AnimationPlayer.play("scroll")
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	# AnimationPlayer will switch between scroll directions automatically
 	if is_scrolling_down:
 		is_scrolling_down = false

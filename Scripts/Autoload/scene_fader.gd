@@ -12,9 +12,9 @@ func transition_to(new_scene_path: String) -> bool:
 	else:
 		_AnimationPlayer.play("Fade_to_black")
 		yield(_AnimationPlayer, "animation_finished")
-		# TODO:
-		# Check if scene has been loaded before fading to color
-		get_tree().change_scene(new_scene_path)
+		var ok = get_tree().change_scene(new_scene_path)
+		if not ok:
+			return ok
 		_AnimationPlayer.play_backwards("Fade_to_black")
 		yield(_AnimationPlayer, "animation_finished")
-		return true
+		return ok

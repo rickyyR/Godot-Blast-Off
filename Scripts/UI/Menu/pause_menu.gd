@@ -9,7 +9,7 @@ func _on_ResumeButton_pressed():
 	hide()
 
 func _on_RestartButton_pressed():
-	get_tree().reload_current_scene()
+	var _ok = get_tree().reload_current_scene()
 	hide()
 
 func _on_QuitButton_pressed():

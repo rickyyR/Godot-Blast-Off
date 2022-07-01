@@ -6,10 +6,10 @@ var playlist:= ["Path1", "Path2"]
 func play_random() -> void:
 	pass
 	
-func play_specific_file(audio_path: String) -> void:
+func play_specific_file(_audio_path: String) -> void:
 	pass
 	
-func play_specific_from_playlist(index: int) -> void:
+func play_specific_from_playlist(_index: int) -> void:
 	pass
 	
 func play_next() -> void:
