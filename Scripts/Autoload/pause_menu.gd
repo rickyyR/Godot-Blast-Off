@@ -23,11 +23,13 @@ func _unhandled_input(event):
 		hide()
 		
 func show() -> void:
+	Engine.time_scale = 0
 	Background.visible = true
 	Buttons.visible = true
 	visible = true
 	
 func hide() -> void:
+	Engine.time_scale = 1
 	Background.visible = false
 	Buttons.visible = false
 	visible = false

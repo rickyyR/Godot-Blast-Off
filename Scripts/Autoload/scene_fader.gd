@@ -12,9 +12,8 @@ func transition_to(new_scene_path: String) -> bool:
 	else:
 		_AnimationPlayer.play("Fade_to_black")
 		yield(_AnimationPlayer, "animation_finished")
-		var ok = get_tree().change_scene(new_scene_path)
-		if not ok:
-			return ok
+		var _ok = get_tree().change_scene(new_scene_path)
 		_AnimationPlayer.play_backwards("Fade_to_black")
 		yield(_AnimationPlayer, "animation_finished")
-		return ok
+		return true
+		

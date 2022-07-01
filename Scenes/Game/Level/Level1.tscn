@@ -11,12 +11,18 @@ margin_bottom = 374.0
 color = Color( 0.356863, 0.0392157, 0.180392, 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 297.0
-margin_top = 149.0
-margin_right = 333.0
-margin_bottom = 177.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 288.0
+margin_top = 172.0
+margin_right = 324.0
+margin_bottom = 186.0
 rect_scale = Vector2( 2, 2 )
 text = "LEVEL"
+align = 1
+valign = 1
 
 [node name="Ground" type="TileMap" parent="."]
 format = 1
