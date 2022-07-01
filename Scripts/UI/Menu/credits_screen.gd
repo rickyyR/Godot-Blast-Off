@@ -18,6 +18,6 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 		$AnimationPlayer.play("scroll")
 
 func _unhandled_input(event):
-	# Any input event will transition back to main menu
+	# Any event will transition back to main menu (does not work for mouse atm)
 	if event:
 		SceneFader.transition_to("res://Scenes/UI/Menu/MainMenu.tscn")

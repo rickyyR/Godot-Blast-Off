@@ -15,7 +15,7 @@ func _on_QuitButton_pressed():
 	SceneFader.transition_to("res://Scenes/UI/Menu/MainMenu.tscn")
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel") and not visible:
+	if event.is_action_pressed("ui_cancel") and not visible and get_tree().current_scene.get_class() == "Level":
 		show()
 	elif event.is_action_pressed("ui_cancel") and visible:
 		hide()
