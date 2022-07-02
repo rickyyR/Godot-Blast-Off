@@ -1,4 +1,4 @@
-Godot Blastoff is a lightweight Godot project template that has menus, options, music and saving already set up so you can jump right into making the game!
+Godot Blast-Off is a lightweight Godot project template that has menus, options, music and saving already set up so you can jump right into making the game!
 
 My goal is to provide a simple yet feature rich template which is easy to customize and expand on.
 
@@ -31,6 +31,6 @@ The preset has a couple of modified options that you may want to change based on
     Audio
         Added Audio Busses for Effects and Music
 
-This template is completely free to use and modify for every project without contribution.
+This template is completely free to use and modify for any project without contribution.
 
 If you have any questions, requests or feedback i would like to hear about it!
