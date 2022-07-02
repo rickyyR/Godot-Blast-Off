@@ -13,7 +13,8 @@ var _current_track_index:= 0 setget set_current_index, get_current_index
 
 func _ready() -> void:
 	play_specific_from_playlist(_current_track_index)
-	
+	# One could enable Autoplay on the Node and remove the following call
+	switch_playing()
 
 func play_random() -> void:
 	randomize()
