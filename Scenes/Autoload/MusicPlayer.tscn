@@ -6,3 +6,5 @@
 pause_mode = 1
 bus = "Music"
 script = ExtResource( 1 )
+
+[connection signal="finished" from="." to="." method="_on_MusicPlayer_finished"]

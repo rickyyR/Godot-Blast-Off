@@ -1,7 +1,7 @@
 # CreditsScreen
 extends Control
 
-var is_scrolling_down:= true
+var _is_scrolling_down:= true
 
 onready var _ScrollContainer:= get_node("ScrollContainer")
 onready var _AnimationPlayer:= get_node("AnimationPlayer")
@@ -13,11 +13,11 @@ func _ready() -> void:
 
 func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	# AnimationPlayer will switch between scroll directions automatically
-	if is_scrolling_down:
-		is_scrolling_down = false
+	if _is_scrolling_down:
+		_is_scrolling_down = false
 		_AnimationPlayer.play_backwards("scroll")
 	else:
-		is_scrolling_down = true
+		_is_scrolling_down = true
 		_AnimationPlayer.play("scroll")
 
 func _unhandled_input(event):

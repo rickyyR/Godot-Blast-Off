@@ -1,9 +1,9 @@
 # PauseMenu
 extends CanvasLayer
 
-var visible:= false
-onready var Buttons:= get_node("Buttons")
-onready var Background:= get_node("Background")
+var _visible:= false
+onready var _Buttons:= get_node("Buttons")
+onready var _Background:= get_node("Background")
 
 func _on_ResumeButton_pressed():
 	hide()
@@ -17,19 +17,20 @@ func _on_QuitButton_pressed():
 	SceneFader.transition_to("res://Scenes/UI/Menu/MainMenu.tscn")
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel") and not visible and get_tree().current_scene.get_class() == "Level":
+	if (event.is_action_pressed("ui_cancel") and not
+	 _visible and get_tree().current_scene.get_class() == "Level"):
 		show()
-	elif event.is_action_pressed("ui_cancel") and visible:
+	elif event.is_action_pressed("ui_cancel") and _visible:
 		hide()
 		
 func show() -> void:
 	Engine.time_scale = 0
-	Background.visible = true
-	Buttons.visible = true
-	visible = true
+	_Background.visible = true
+	_Buttons.visible = true
+	_visible = true
 	
 func hide() -> void:
 	Engine.time_scale = 1
-	Background.visible = false
-	Buttons.visible = false
-	visible = false
+	_Background.visible = false
+	_Buttons.visible = false
+	_visible = false

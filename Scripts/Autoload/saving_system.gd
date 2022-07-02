@@ -1,8 +1,8 @@
 extends Node
 
-const SAVE_DIR = "user://saves/"
-
-var save_path = SAVE_DIR + "save.dat"
+const _SAVE_DIR = "user://saves/"
+const _file_name = "save.dat" 
+const _save_path = _SAVE_DIR + _file_name 
 
 func _ready() -> void:
 	load_data()
@@ -13,11 +13,11 @@ func save_data() -> void:
 	#Note that the loading order must match the saving order
 	var options_data = GlobalVariables.settings
 	var dir = Directory.new()
-	if !dir.dir_exists(SAVE_DIR):
-		dir.make_dir_recursive(SAVE_DIR)
+	if !dir.dir_exists(_SAVE_DIR):
+		dir.make_dir_recursive(_SAVE_DIR)
 	var file = File.new()
 	# Save without encryption
-	var error = file.open(save_path, File.WRITE)
+	var error = file.open(_save_path, File.WRITE)
 	# Save with encryption. Pass any String you want as last parameter
 	#var error = file.open_encrypted_with_pass(save_path, File.WRITE, "YourKeyHere")
 	if error == OK:
@@ -26,9 +26,9 @@ func save_data() -> void:
 
 func load_data() -> void:
 	var file = File.new()
-	if file.file_exists(save_path):
+	if file.file_exists(_save_path):
 		# Load without encryption
-		var error = file.open(save_path, File.READ)
+		var error = file.open(_save_path, File.READ)
 		# Load with encryption. 
 		# Last parameter has to match the String passed as parameter in "Save with encryption"
 		#var error = file.open_encrypted_with_pass(save_path, File.READ, "YourKeyHere")
@@ -41,7 +41,7 @@ func load_data() -> void:
 
 func delete_all_data() -> void:
 	var dir = Directory.new()
-	dir.remove(save_path)
+	dir.remove(_save_path)
 	
 func apply_user_settings() -> void:
 	if not GlobalVariables.settings["Fullscreen"]:
