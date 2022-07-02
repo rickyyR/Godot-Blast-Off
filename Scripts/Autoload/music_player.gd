@@ -1,14 +1,19 @@
 # MusicPlayer
+# Note that the play_... functions will only change the Players stream,
+# if playing is set to false you will have to call switch_playing() after to start
 extends AudioStreamPlayer
 
 const modes:= ["PLAY_NEXT", "PLAY_PREVIOUS", "PLAY_RANDOM", "LOOP"]
 # You can add more tracks to this list
 var playlist:= [preload("res://Assets/menu_soundtrack_by_cactusdude.ogg")]
 var current_mode = "PLAY_NEXT" setget set_mode, get_mode
+# The current tracks index inside the playlist
+# to prevent use of .find("Track") inside play-next/previous
 var _current_track_index:= 0 setget set_current_index, get_current_index
 
 func _ready() -> void:
 	play_specific_from_playlist(_current_track_index)
+	# One could enable Autoplay on the Node and remove the following call
 	switch_playing()
 
 func play_random() -> void:

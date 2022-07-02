@@ -1,4 +1,7 @@
 # PauseMenu
+# This will be active and hidden, waiting for the "ui_cancel" input action
+# On show it will pause the Engine, if you wish to change this you can remove
+# the Engine.time_scale calls from show() and hide()
 extends CanvasLayer
 
 var _visible:= false

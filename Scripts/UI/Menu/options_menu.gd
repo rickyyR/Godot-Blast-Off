@@ -70,7 +70,6 @@ func _on_BoderlessCheckbox_toggled(button_pressed: bool) -> void:
 		center_screen()
 
 func _on_ResolutionOptions_item_selected(index: int) -> void:
-	var current_selected = index
 	var new_resolution = GlobalVariables.window_resolutions[index]
 	OS.set_window_size(new_resolution)
 	GlobalVariables.settings["Resolution"] = new_resolution
@@ -79,7 +78,7 @@ func _on_ResolutionOptions_item_selected(index: int) -> void:
 func _on_DeleteSaveButton_pressed():
 	if DeleteSaveCheckbox.pressed:
 		SavingSystem.delete_all_data()
-		get_tree().change_scene("res://Scenes/UI/Menu/MainMenu.tscn")
+		var _ok = get_tree().change_scene("res://Scenes/UI/Menu/MainMenu.tscn")
 
 func _on_DeleteSaveCheckbox_toggled(button_pressed: bool) -> void:
 	if button_pressed:
