@@ -1,29 +1,36 @@
-Things that are different to a Godot new project:
+Godot Blastoff is a lightweight Godot project template that has menus, options, music and saving already set up so you can jump right into making the game!
 
-SETTINGS:
-	Window:
-		Resolution and Test Resolution set to 640x360
-		Stretch set to Viewport keep Aspect
-	
-	Rendering - 2d:
-		Enabled GPU Pixel Snap
+My goal is to provide a simple yet feature rich template which is easy to customize and expand on.
 
-	Debug:
-		Force Fps set to 60
-		
-GENERAL:
-	Audio:
-		Added Effects and Music Audiobus
+Things that are different from a Godot new project:
 
-PREMADE SCENES:
-	Main Menu with Buttons to change Scenes
-	Options Menu with working options for Sound and Display
-	Credits Screen with scrolling Credits (Exit with Keyboard Event)
-	Empty Level
+    Preset Scenes
+        Intro
+        Main Menu
+        Options Menu
+        Credits
+        Empty Level
+    Autoloads
+        Global Variables
+        Saving System
+        Music Player
+        Pause Menu
+        Scene Fader
 
-AUTOLOADS:
-	Script for storing variables accessed by different Scenes (GlobalVariables)
-	SceneFader to transition between Scenes
-	MusicPlayer
-	PauseMenu triggered with ESC Button inside a Level
-	SavingSystem setup to save Sound and Display options
+All with full basic functionality
+
+The preset has a couple of modified options that you may want to change based on the project you are working on.
+
+    Window
+        Resolution and Test Resolution set to 640x360
+        Stretch set to Viewport keep Aspect
+    Rendering - 2D
+        Enabled GPU Pixel Snap
+    Debug
+        Force FPS set to 60
+    Audio
+        Added Audio Busses for Effects and Music
+
+This template is completely free to use and modify for every project without contribution.
+
+If you have any questions, requests or feedback i would like to hear about it!
