@@ -20,7 +20,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 		_is_scrolling_down = true
 		_AnimationPlayer.play("scroll")
 
-func _unhandled_input(event):
-	# Any event will transition back to main menu (does not work for mouse atm)
-	if event:
+func _input(event):
+	# Any key/button event will transition back to main menu
+	if event is InputEventKey or event is InputEventMouseButton:
 		SceneFader.transition_to("res://Scenes/UI/Menu/MainMenu.tscn")

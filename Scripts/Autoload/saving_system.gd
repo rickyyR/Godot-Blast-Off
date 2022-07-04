@@ -43,7 +43,7 @@ func load_data() -> void:
 			
 			file.close()
 			GlobalVariables.settings = options_data
-# This function will delete the whole Directory
+# This function will delete the whole file!
 # If you want to delete only the progress and keep the users settings
 # you can simply override the var (array, int, ...) you use to track the progress
 # inside the save file instead of deleting the whole thing
