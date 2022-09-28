@@ -7,3 +7,4 @@ extends Node2D
 # Using Groups is a good alternative option
 func get_class() -> String:
 	return "Level"
+
